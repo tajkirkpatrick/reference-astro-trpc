@@ -14,6 +14,7 @@
     <button id="trpc">TRPC</button>
     <script>
       import { client } from "../util/trpc/index";
+      import { client } from "../util/trpc/index";
 
       document.getElementById("trpc")?.addEventListener("click", async () => {
         const data = await client.getHello
@@ -21,6 +22,7 @@
           .then((res) => res.message)
           .catch((error) => console.error(error));
 
+        alert(`TRPC Response: ${data}`);
         alert(`TRPC Response: ${data}`);
       });
     </script>
