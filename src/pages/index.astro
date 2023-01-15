@@ -13,14 +13,15 @@
     <h1>Astro</h1>
     <button id="trpc">TRPC</button>
     <script>
-      import type { getHelloTRPCResponse } from "../util/types/getHello";
+      import { client } from "../util/trpc/index";
 
       document.getElementById("trpc")?.addEventListener("click", async () => {
-        const response = await fetch(
-          `http://localhost:3000/api/trpc/getHello`
-        ).then((resp) => resp.json() as unknown as getHelloTRPCResponse);
+        const data = await client.getHello
+          .query()
+          .then((res) => res.message)
+          .catch((error) => console.error(error));
 
-        alert(response.result.data.message);
+        alert(`TRPC Response: ${data}`);
       });
     </script>
   </body>
