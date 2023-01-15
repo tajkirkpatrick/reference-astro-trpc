@@ -1,0 +1,27 @@
+---
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Astro</h1>
+    <button id="trpc">TRPC</button>
+    <script>
+      import type { getHelloTRPCResponse } from "../util/types/getHello";
+
+      document.getElementById("trpc")?.addEventListener("click", async () => {
+        const response = await fetch(
+          `http://localhost:3000/api/trpc/getHello`
+        ).then((resp) => resp.json() as unknown as getHelloTRPCResponse);
+
+        alert(response.result.data.message);
+      });
+    </script>
+  </body>
+</html>
