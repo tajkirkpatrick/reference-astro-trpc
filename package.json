@@ -14,13 +14,14 @@
   "dependencies": {
     "@trpc/client": "^10.9.0",
     "@trpc/server": "^10.9.0",
-    "astro": "^1.9.0"
+    "astro": "^1.9.0",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.32.0",
-    "typescript": "^4.9.4",
-    "zod": "^3.20.2"
+    "eslint-plugin-astro": "^0.21.1",
+    "typescript": "^4.9.4"
   }
 }

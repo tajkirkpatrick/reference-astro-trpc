@@ -18,7 +18,7 @@
       document.getElementById("trpc")?.addEventListener("click", async () => {
         const data = await client.getHello
           .query()
-          .then((res) => res.message)
+          .then(({ message }) => message) // deconstruct the response object and give me the message property - replaces .then((response) => response.message)
           .catch((error) => console.error(error));
 
         alert(`TRPC Response: ${data}`);
